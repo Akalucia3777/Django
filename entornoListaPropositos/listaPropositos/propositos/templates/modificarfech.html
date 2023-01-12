@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atrasar Fecha</h1>
+    <form action="retrasarFech/{{ propositos.id }}" method="get">
+        <label for="">Nueva Fecha</label>
+        <p>La fecha anterior era {{propositos.fecObj}}</p>
+        <input type="number" name="numDias"><br><br>
+        <button type="submit">Cambiar Fecha</button>
+    </form>
+</body>
+</html>

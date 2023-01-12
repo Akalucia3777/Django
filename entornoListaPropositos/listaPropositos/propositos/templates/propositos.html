@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Propositos</title>
+</head>
+<body>
+    <h1>Lista de Propositos</h1>
+    <form action="nuevProp" method="get">
+        <label for="">Nombre Proposito</label>
+        <input type="text" name="propnuevo"><hr>
+        <label for="">Fecha Maxima</label>
+        <input type="date" name="fech"><br><br>
+        <button type="submit">Añadir proposito</button>
+    </form>
+    <ul>
+        {% for c in propositos %}
+            
+        
+            {% if c.conseg %}
+            <li><del>{{c.prop}} ({{c.fecObj}})</del>{{c.fecConseg}}<a href="resetear/{{c.id}}"><button>Resetear</button></a>&nbsp<a href="borrar/{{c.id}}"><button>Borrar</button></a></li>
+            {% else %}
+                {% if fechaActual > c.fecObj %}
+                    <li style="color:red;"><a href="conseguido/{{c.id}}"><button>Hecho</button></a>&nbsp&nbsp{{c.prop}} ({{c.fecObj}}) &nbsp<a href="borrar/{{c.id}}"><button>Borrar</button></a>&nbsp<a href="modificarFech/{{c.id}}"><button>Modificar Fecha</button></a>&nbsp<a href="modificarNombre/{{c.id}}"><button>Modificar Nombre</button></a></li>
+                {% else %}
+                    <li><a href="conseguido/{{c.id}}"><button>Hecho</button></a>&nbsp&nbsp{{c.prop}} ({{c.fecObj}}) &nbsp<a href="borrar/{{c.id}}"><button>Borrar</button></a>&nbsp<a href="modificarFech/{{c.id}}"><button>Modificar Fecha</button></a>&nbsp<a href="modificarNombre/{{c.id}}"><button>Modificar Nombre</button></a></li>
+                {% endif %}
+            {% endif %}
+            
+        {% endfor %}
+    </ul>
+</body>
+</html>
