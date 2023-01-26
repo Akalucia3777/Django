@@ -39,11 +39,12 @@
 <body>
     <header>
         <div class="topnav">
-            <a class="active" href="/">Home</a>
-            <a href="desayuno">Desayuno</a>
-            <a href="comidas">Comidas</a>
-            <a href="cenas">Cenas</a>
-            <a href="todas">Todas</a>
+          <a  href="{% url 'inicio'%}">Inicio</a>
+          <a href="{% url 'receta'%}">Receta del dia</a>
+          <a href="{% url 'desayuno'%}">Desayunos</a>
+          <a href="{% url 'comidas'%}">Comidas</a>
+          <a href="{% url 'cenas'%}">Cenas</a>
+          <a href="{% url 'todas'%}">Todas las recetas</a>
         </div>
     </header>
     <div>
