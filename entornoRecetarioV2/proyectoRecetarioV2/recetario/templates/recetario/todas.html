@@ -2,5 +2,14 @@
 {% extends "recetario/base.html" %}
 
 {% block contenido %}
-    Aqui van todas las recetas
+    {% for receta in recetas %}
+        {% if not forloop.first %}<hr>{% endif %}
+        {{receta.nombre}}<br>
+        {{receta.subnombre}}<br>
+        {{receta.ingredientes |upper |linebreaks}}<br>
+        {{receta.receta}}<br>
+        {{receta.created}}<br>
+        {{receta.updated}}<br>
+        {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
 {% endblock %}

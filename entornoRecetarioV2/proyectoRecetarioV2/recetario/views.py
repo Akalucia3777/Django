@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_list_or_404
 from django.template import loader
 from django.http import HttpResponse
 from .models import Receta
@@ -26,7 +26,11 @@ def cenas(request):
 
 def todas(request):
     
-    recetas = get_object_or_404(Receta,id=0)
+    recetas = get_list_or_404(Receta)
+    
+    ctx = {
+        'recetas':recetas,
+    }
     
     todas = loader.get_template('recetario/todas.html')
-    return HttpResponse(todas.render())
+    return HttpResponse(todas.render(ctx,request))
