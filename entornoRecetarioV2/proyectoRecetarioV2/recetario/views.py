@@ -9,12 +9,22 @@ def inicio(request):
     return HttpResponse(home.render())
 
 def receta(request):
+    receta = Receta.objects.latest('created')
+    ctx = {
+        'receta':receta,
+    }
+    
     receta = loader.get_template('recetario/receta.html')
     return HttpResponse(receta.render())
 
 def desayunos(request):
-    desayunos = loader.get_template('recetario/desayunos.html')
-    return HttpResponse(desayunos.render())
+    recetas = Receta.objects.filter(categorias__nombre='Desayuno')
+    
+    ctx = {
+        'recetas':recetas,
+    }
+    todas = loader.get_template('recetario/todas.html')
+    return HttpResponse(todas.render(ctx,request))
 
 def comidas(request):
     comidas = loader.get_template('recetario/comidas.html')
@@ -27,6 +37,16 @@ def cenas(request):
 def todas(request):
     
     recetas = get_list_or_404(Receta)
+    
+    ctx = {
+        'recetas':recetas,
+    }
+    
+    todas = loader.get_template('recetario/todas.html')
+    return HttpResponse(todas.render(ctx,request))
+
+def categoria(request,idCategoria):
+    recetas= get_list_or_404(Receta,categorias=idCategoria)
     
     ctx = {
         'recetas':recetas,
