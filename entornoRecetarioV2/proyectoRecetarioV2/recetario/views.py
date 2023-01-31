@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.template import loader
 from django.http import HttpResponse
+from .models import Receta
 
 # Create your views here.
 def inicio(request):
@@ -24,5 +25,8 @@ def cenas(request):
     return HttpResponse(cenas.render())
 
 def todas(request):
+    
+    recetas = get_object_or_404(Receta,id=0)
+    
     todas = loader.get_template('recetario/todas.html')
     return HttpResponse(todas.render())
