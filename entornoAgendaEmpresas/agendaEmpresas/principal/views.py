@@ -2,10 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render,get_list_or_404
 from django.template import loader
 
+
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
+from django.urls import reverse
 from .models import Empresas
 # Create your views here.
 
@@ -18,6 +21,9 @@ class EmpresaDetailView(DetailView):
 class EmpresaCreateView(CreateView):
     model = Empresas
     fields = ['nombre','tipo','direccion','telefono','personaContacto']
+    
+    def get_success_url(self):
+        return reverse('listado')
 
 # def listado(request):
 #     #modelo

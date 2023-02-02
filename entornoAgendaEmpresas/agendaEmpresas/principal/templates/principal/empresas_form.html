@@ -11,7 +11,11 @@
     <form method="post">
         <!-- Aqui sale con el formato -->
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- si ponemos as_p genera parrafos en cada campo del form -->
+        <table>
+            {{ form.as_table }}
+        </table>
+        
         <input type="submit" value="Crear empresa">
     </form>
 </body>
