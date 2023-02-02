@@ -6,6 +6,12 @@ from django.template import loader
 from django.http import HttpResponse
 from .models import Receta
 
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+
+from django.urls import reverse_lazy
+
 # Create your views here.
 def inicio(request):
     home = loader.get_template('recetario/inicio.html')
@@ -37,16 +43,6 @@ def cenas(request):
     cenas = loader.get_template('recetario/cenas.html')
     return HttpResponse(cenas.render())
 
-def todas(request):
-    
-    recetas = get_list_or_404(Receta)
-    
-    ctx = {
-        'recetas':recetas,
-    }
-    
-    todas = loader.get_template('recetario/todas.html')
-    return HttpResponse(todas.render(ctx,request))
 
 def categoria(request,idCategoria):
     recetas= get_list_or_404(Receta,categorias=idCategoria)
@@ -57,3 +53,33 @@ def categoria(request,idCategoria):
     
     todas = loader.get_template('recetario/todas.html')
     return HttpResponse(todas.render(ctx,request))
+
+class RecetaListView(ListView):
+    model = Receta
+
+class RecetaDetailView(DetailView):
+    model = Receta
+    
+class RecetaCreateView(CreateView):
+    model = Receta
+    fields = ['nombre','subnombre','imagen','ingredientes','receta','categorias']
+    
+    #un atajo mas rapido
+    success_url = reverse_lazy('listado')
+    
+    #esto se usa mucho por los que se crea un atajo de perezosos
+    # def get_success_url(self):
+    #     return reverse('listado')
+
+class RecetaUpdateView(UpdateView):
+    model = Receta
+    
+    fields = ['nombre','subnombre','imagen','ingredientes','receta','categorias']
+    template_name_suffix = '_update_form'
+    
+    success_url = reverse_lazy('listado')
+    
+class RecetaDeleteView(DeleteView):
+    model = Receta
+    
+    success_url = reverse_lazy('listado')

@@ -1,0 +1,14 @@
+{# esto es un comentario #}
+{% extends "recetarioV3/base.html" %}
+
+{% block contenido %}
+    <form method="post">
+        {% csrf_token %}
+        
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input type="submit" value="Modificar empresa">
+    </form>
+{% endblock %}

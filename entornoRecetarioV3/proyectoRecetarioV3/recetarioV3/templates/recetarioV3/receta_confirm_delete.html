@@ -1,0 +1,11 @@
+{# esto es un comentario #}
+{% extends "recetarioV3/base.html" %}
+
+{% block contenido %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Seguro que quieres borrar {{ receta }}</p>
+        {{ form }}
+        <input type="submit" value="Confirmar">
+    </form>
+{% endblock %}

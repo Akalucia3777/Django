@@ -1,0 +1,15 @@
+{# esto es un comentario #}
+{% extends "recetarioV3/base.html" %}
+
+{% block contenido %}
+    <form method="post">
+        <!-- Aqui sale con el formato -->
+        {% csrf_token %}
+        <!-- si ponemos as_p genera parrafos en cada campo del form -->
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input type="submit" value="Crear Receta">
+    </form>
+{% endblock %}

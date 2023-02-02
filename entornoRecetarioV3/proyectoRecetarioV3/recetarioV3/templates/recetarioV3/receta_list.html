@@ -1,0 +1,21 @@
+{# esto es un comentario #}
+{% extends "recetarioV3/base.html" %}
+
+{% block contenido %}
+        <a href="{% url 'crear'%}">Crear empresa</a>
+        <h1>Listado de empresas</h1>
+        {{ receta_list }}
+        {% for r in receta_list %}
+            <ul>
+                <li><a href="{% url 'detalle' r.id %}">{{r.nombre}}</a></li>
+                <p>{{ r.subnombre }}</p>
+                <p><img src="{{ r.imagen }}" alt=""></p>
+                <p>{{ r.ingredientes }}</p>
+                <p>{{ r.receta }}</p>
+                {% for i in r.categorias.all %}
+                    <p>{{ i.Categorias }}</p>
+                {% endfor %}
+            </ul>
+            <hr></hr>
+        {% endfor %}
+{% endblock %}
