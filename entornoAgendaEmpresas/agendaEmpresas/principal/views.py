@@ -32,6 +32,11 @@ class EmpresaCreateView(CreateView):
 class EmpresaUpdateView(UpdateView):
     model = Empresas
     
+    fields = ['nombre','tipo','direccion','personaContacto']
+    template_name_suffix = '_update_form'
+    
+    success_url = reverse_lazy('listado')
+    
 class EmpresaDeleteView(DeleteView):
     model = Empresas
     

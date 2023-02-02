@@ -15,6 +15,8 @@
     <p>{{empresas.created}}</p>
     <p>{{empresas.updated}}</p>
 
+    <a href="{% url 'modificar' empresas.id %}">Modificar Empresa</a>
     <a href="{% url 'borrar' empresas.id %}">Borrar Empresa</a>
+    
 </body>
 </html>
