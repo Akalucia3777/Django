@@ -4,6 +4,7 @@ from django.template import loader
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 from .models import Empresas
 # Create your views here.
@@ -14,6 +15,9 @@ class EmpresaListView(ListView):
 class EmpresaDetailView(DetailView):
     model = Empresas
     
+class EmpresaCreateView(CreateView):
+    model = Empresas
+    fields = ['nombre','tipo','direccion','telefono','personaContacto']
 
 # def listado(request):
 #     #modelo

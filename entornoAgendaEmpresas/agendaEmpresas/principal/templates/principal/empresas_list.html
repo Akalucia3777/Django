@@ -7,7 +7,9 @@
     <title>Listado</title>
 </head>
 <body>
+    <a href="{% url 'crear'%}">Crear empresa</a>
     <h1>Listado de empresas</h1>
+    {{ empresas_list }}
     {% for e in empresas_list %}
         <ul>
             <li><a href="{% url 'detalle' e.id %}">{{e.nombre}}</a></li>
