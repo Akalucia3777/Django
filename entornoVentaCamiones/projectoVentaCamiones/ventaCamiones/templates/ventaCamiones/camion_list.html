@@ -1,0 +1,21 @@
+{# esto es un comentario #}
+{% extends "ventaCamiones/base.html" %}
+
+{% block contenido %}
+        {% include 'ventaCamiones/includes/camion_crear.html' %}
+        <h1>Listado de Camiones</h1>
+        {{ camion_list }}
+        {% for r in camion_list %}
+            <ul>
+                <li><a href="{% url 'detalle' r.id %}">{{r.marca}}</a></li>
+                <p>{{ r.modelo }}</p>
+                <p><img src="{{ r.imagen }}" alt=""></p>
+                <p>{{ r.descripcion }}</p>
+                <p>{{ r.kilometros }}</p>
+                {% for i in r.categorias.all %}
+                    <p>{{ i.Categorias }}</p>
+                {% endfor %}
+            </ul>
+            <hr></hr>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta Camiones</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'camiones/css/estilos.css' %}">
+    <style>
+        .bot{
+            border:none;
+            color:red;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="centrado">Venta camiones</header>
+    <div class="topnav">
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <!-- <a href="{% url 'listado' %}">Todos los camiones</a> -->
+    </div>
+    <div id="content">
+        {% block contenido %}
+            Aqui va el contenido
+        {% endblock %}
+    </div>
+</body>
+</html>
