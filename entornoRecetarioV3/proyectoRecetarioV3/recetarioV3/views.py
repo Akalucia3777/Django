@@ -14,7 +14,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 def inicio(request):
-    home = loader.get_template('recetario/inicio.html')
+    home = loader.get_template('recetarioV3/inicio.html')
     return HttpResponse(home.render())
 
 def receta(request):
@@ -23,7 +23,7 @@ def receta(request):
         'receta':receta,
     }
     
-    receta = loader.get_template('recetario/receta.html')
+    receta = loader.get_template('recetarioV3/receta.html')
     return HttpResponse(receta.render())
 
 def desayunos(request):
@@ -32,15 +32,15 @@ def desayunos(request):
     ctx = {
         'recetas':recetas,
     }
-    todas = loader.get_template('recetario/todas.html')
+    todas = loader.get_template('recetarioV3/desayunos.html')
     return HttpResponse(todas.render(ctx,request))
 
 def comidas(request):
-    comidas = loader.get_template('recetario/comidas.html')
+    comidas = loader.get_template('recetarioV3/comidas.html')
     return HttpResponse(comidas.render())
 
 def cenas(request):
-    cenas = loader.get_template('recetario/cenas.html')
+    cenas = loader.get_template('recetarioV3/cenas.html')
     return HttpResponse(cenas.render())
 
 
@@ -51,7 +51,7 @@ def categoria(request,idCategoria):
         'recetas':recetas,
     }
     
-    todas = loader.get_template('recetario/todas.html')
+    todas = loader.get_template('recetarioV3/todas.html')
     return HttpResponse(todas.render(ctx,request))
 
 class RecetaListView(ListView):

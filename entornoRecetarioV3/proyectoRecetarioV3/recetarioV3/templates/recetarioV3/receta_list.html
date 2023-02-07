@@ -2,7 +2,7 @@
 {% extends "recetarioV3/base.html" %}
 
 {% block contenido %}
-        <a href="{% url 'crear'%}">Crear empresa</a>
+        {% include 'recetarioV3/includes/receta_crear.html' %}
         <h1>Listado de empresas</h1>
         {{ receta_list }}
         {% for r in receta_list %}
