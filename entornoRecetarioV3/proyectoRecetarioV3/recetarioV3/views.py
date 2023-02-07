@@ -9,6 +9,7 @@ from .models import Receta
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from .forms import RecetaForm
 
 from django.urls import reverse_lazy
 
@@ -62,7 +63,7 @@ class RecetaDetailView(DetailView):
     
 class RecetaCreateView(CreateView):
     model = Receta
-    fields = ['nombre','subnombre','imagen','ingredientes','receta','categorias']
+    form_class=RecetaForm
     
     #un atajo mas rapido
     success_url = reverse_lazy('listado')
@@ -74,7 +75,7 @@ class RecetaCreateView(CreateView):
 class RecetaUpdateView(UpdateView):
     model = Receta
     
-    fields = ['nombre','subnombre','imagen','ingredientes','receta','categorias']
+    form_class=RecetaForm
     template_name_suffix = '_update_form'
     
     success_url = reverse_lazy('listado')
