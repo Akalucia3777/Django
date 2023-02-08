@@ -6,11 +6,11 @@
     <p><img src="/media/{{ camiones.imagen }}" alt=""></p>
     <p>{{camiones.modelo}}</p>
     <p>{{ camiones.kilometros }}</p>
-    <p>{{camiones.descripcion|linebreaks }}</p>
+    <p>{{ camiones.descripcion|linebreaks }}</p>
     <p>{{ camiones.precio }}</p>
-    <p>{{ receta.created }}</p>
-    <p>{{ receta.updated }}</p>
-    {% for i in receta.categorias.all %}
+    <p>{{ camiones.created }}</p>
+    <p>{{ camiones.updated }}</p>
+    {% for i in camiones.categorias.all %}
             <p>{{ i.nombre }}</p>
     {% endfor %}
 
