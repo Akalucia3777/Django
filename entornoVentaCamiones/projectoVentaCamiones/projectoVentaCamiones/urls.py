@@ -20,6 +20,8 @@ from django.urls import include, path
 urlpatterns = [
     path('',include('ventaCamiones.urls')),
     path('admin/', admin.site.urls),
+    #rutas de autenticacion
+    path('cuentas/',include('django.contrib.auth.urls'))
 ]
 
 if settings.DEBUG:
