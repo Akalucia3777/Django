@@ -1,0 +1,4 @@
+{% if request.user.is_authenticated %}
+    <a href="{% url 'modificar' camiones.id %}">Modificar Camion</a><br>
+    <a href="{% url 'borrar' camiones.id %}">Borrar Camion</a>
+{% endif %}
