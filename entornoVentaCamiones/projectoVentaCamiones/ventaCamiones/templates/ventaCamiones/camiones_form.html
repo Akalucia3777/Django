@@ -2,14 +2,19 @@
 {% extends "ventaCamiones/base.html" %}
 
 {% block contenido %}
-    <form method="post" enctype="multipart/form-data">
-        <!-- Aqui sale con el formato -->
-        {% csrf_token %}
-        <!-- si ponemos as_p genera parrafos en cada campo del form -->
-        <table>
-            {{ form.as_table }}
-        </table>
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1>Crear Camion</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Crear  Camion" class="btn btn-danger">
+            </form>
+        </div>
         
-        <input type="submit" value="Crear  Camion">
-    </form>
+    </div>
+</div>
+    
 {% endblock %}

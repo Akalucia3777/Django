@@ -6,9 +6,18 @@ class CamionesForm (forms.ModelForm):
         model = Camiones
         fields = ['marca','modelo','imagen','precio','descripcion','kilometros','author','categorias']
         widgets = {
-            'marca':forms.TextInput(attrs={'style':'background-color:red'}),
-            'modelo':forms.TextInput(attrs={'style':'background-color:yellow','placeholder':'escribe el modelo'}),
-            'precio':forms.TextInput(attrs={'style':'background-color:red'}),
-            'descripcion':forms.Textarea(attrs={'class':'bot'}),
-            'kilometros':forms.TextInput(attrs={'style':'background-color:red'}),
+            'marca':forms.TextInput(attrs={'placeholder':'Introduce la marca','class':'form-control','style':'margin-top:20px'}),
+            'modelo':forms.TextInput(attrs={'placeholder':'Introduce el modelo','class':'form-control'}),
+            'precio':forms.TextInput(attrs={'placeholder':'Introduce el precio','class':'form-control'}),
+            'descripcion':forms.Textarea(attrs={'placeholder':'Escribe una descripcion','class':'form-control'}),
+            'kilometros':forms.TextInput(attrs={'placeholder':'Introduce los km','class':'form-control'}),
+        }
+        
+        labels = {
+            'marca':'',
+            'modelo':'',
+            'imagen':'',
+            'precio':'',
+            'descripcion':'',
+            'kilometros':'',
         }

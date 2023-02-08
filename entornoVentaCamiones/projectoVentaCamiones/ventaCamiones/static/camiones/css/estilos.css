@@ -10,11 +10,22 @@ header {
     align-items:center;
 }
 #imgInicio {
+    height:500px;
     margin: 10px;
     padding: 10px;
-    filter: opacity(50%) drop-shadow(10px 10px 10px gray);
+    filter: opacity(70%) drop-shadow(10px 10px 10px gray);
 }
-
+#links{
+    color:white;
+    font-size: 25px;
+    text-decoration: none;
+    background-color:rgba(192, 92, 50, 0.651);
+    padding: 10px;
+    border-radius: 10%;
+}
+#linkDiv{
+    margin-bottom: 20px;
+}
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: rgba(192, 92, 50, 0.651);
