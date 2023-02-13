@@ -21,7 +21,8 @@ urlpatterns = [
     path('',include('ventaCamiones.urls')),
     path('admin/', admin.site.urls),
     #rutas de autenticacion
-    path('cuentas/',include('django.contrib.auth.urls'))
+    path('cuentas/',include('django.contrib.auth.urls')),
+    path('cuentas/',include('registration.urls'))
 ]
 
 if settings.DEBUG:

@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Login</h1>
+    {% if 'registrado' in request.GET %}
+        <p style="color:green">TE HAS REGISTRADO CORRECTAMENTE</p>
+    {% endif %}
     <form action="" method="post">
         {% csrf_token %} <!-- Para que no haya interacciones cruzadas y te roben los datos -->
         {{ form.as_p }}

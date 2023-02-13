@@ -23,6 +23,7 @@
 
         {% if not request.user.is_authenticated %}
             <a href="{% url 'login' %}">Entrar</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
         {% else %}
             <a href="{% url 'logout' %}">Salir</a>
         {% endif %}
