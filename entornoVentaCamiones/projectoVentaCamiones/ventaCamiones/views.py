@@ -12,6 +12,7 @@ from django.views.generic.edit import CreateView,UpdateView,DeleteView
 
 from django.urls import reverse_lazy
 from .forms import CamionesForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def inicio(request):
@@ -34,14 +35,19 @@ class CamionListView(ListView):
 class CamionDetailView(DetailView):
     model = Camiones
 
-class CamionCreateView(CreateView):
+class CamionCreateView(LoginRequiredMixin,CreateView):
+    #para que si intenta modificar o borrar le mande al login si no esta logeado
+    login_url = '/cuentas/login/'
     model = Camiones
     form_class=CamionesForm
     
     #un atajo mas rapido
     success_url = reverse_lazy('listado')
 
-class CamionUpdateView(UpdateView):
+class CamionUpdateView(LoginRequiredMixin,UpdateView):
+    #para que si intenta modificar o borrar le mande al login si no esta logeado
+    login_url = '/cuentas/login/'
+    
     model = Camiones
     
     form_class=CamionesForm
