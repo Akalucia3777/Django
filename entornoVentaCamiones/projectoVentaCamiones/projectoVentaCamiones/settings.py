@@ -137,3 +137,12 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 #configuracion de autenticacion
 LOGIN_REDIRECT_URL = 'inicio'
 LOGIN_REDIRECT_URL = 'inicio'
+
+#configuracion de correo
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR,"correosEnviados")
+    
+else:
+    #configuracion de correo de verdad
+    pass
