@@ -1,0 +1,17 @@
+{% extends "principal/base.html" %}
+
+{% block titulo %}
+    Modificar un Profesor
+
+{% endblock %}
+{% block contenido %}
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input type="submit" value="Modificar Profesor">
+    </form>
+{% endblock %}
+    
